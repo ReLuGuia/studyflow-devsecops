@@ -718,7 +718,7 @@ $tempo_planejado_segundos = $sessao['tempo_planejado'] * 60;
             // Criar formulário para enviar os dados
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = 'concluir.php?id=<?php echo $id; ?>';
+           form.action = 'concluir.php?id=<?php echo htmlentities($id); ?>';
             
             const inputTempo = document.createElement('input');
             inputTempo.type = 'hidden';
@@ -761,7 +761,7 @@ $tempo_planejado_segundos = $sessao['tempo_planejado'] * 60;
         
         // Carregar anotações do localStorage
         document.addEventListener('DOMContentLoaded', function() {
-            const savedAnotacao = localStorage.getItem('sessao_anotacao_<?php echo $id; ?>');
+            const savedAnotacao = localStorage.getItem('sessao_anotacao_<?php echo htmlentities($id); ?>');
             if (savedAnotacao) {
                 document.getElementById('anotacao').value = savedAnotacao;
             }
@@ -770,7 +770,7 @@ $tempo_planejado_segundos = $sessao['tempo_planejado'] * 60;
         // Salvar anotações automaticamente
         setInterval(function() {
             const anotacao = document.getElementById('anotacao').value;
-            localStorage.setItem('sessao_anotacao_<?php echo $id; ?>', anotacao);
+            localStorage.setItem('sessao_anotacao_<?php echo htmlentities($id); ?>', anotacao);
         }, 5000);
         
         // Atualizar display inicial

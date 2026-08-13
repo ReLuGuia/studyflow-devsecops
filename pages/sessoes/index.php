@@ -487,7 +487,7 @@ $sessoes_hoje = $stmtHoje->fetchAll();
                 <?php endif; ?>
                 
                 <div class="filtro-group">
-                    <input type="date" name="data" value="<?php echo $filtro_data; ?>" placeholder="Data">
+                    <input type="date" name="data" value="<?php echo htmlentities($filtro_data); ?>" placeholder="Data">
                 </div>
                 
                 <div class="filtro-group">

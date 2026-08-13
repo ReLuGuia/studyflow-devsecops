@@ -446,7 +446,7 @@ $estatisticas = $stmt->fetch();
         <!-- Ações e Filtros -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div>
-                <a href="create.php?disciplina_id=<?php echo $disciplina_id; ?>" class="btn-criar">
+                <a href="create.php?disciplina_id=<?php echo htmlentities($disciplina_id); ?>" class="btn-criar">
                     <i class="fas fa-plus"></i> Novo Assunto
                 </a>
             </div>
@@ -492,7 +492,7 @@ $estatisticas = $stmt->fetch();
                     <i class="fas fa-book-open"></i>
                     <h3>Nenhum assunto cadastrado</h3>
                     <p>Comece adicionando o primeiro assunto desta disciplina.</p>
-                    <a href="create.php?disciplina_id=<?php echo $disciplina_id; ?>" class="btn-criar">
+                    <a href="create.php?disciplina_id=<?php echo htmlentities($disciplina_id); ?>" class="btn-criar">
                         <i class="fas fa-plus"></i> Criar Primeiro Assunto
                     </a>
                 </div>
@@ -510,7 +510,7 @@ $estatisticas = $stmt->fetch();
                                    style="color: <?php echo $assunto['concluido'] ? '#27ae60' : $disciplina['cor']; ?>; font-size: 20px;"></i>
                                 <div>
                                     <h3>
-                                        <a href="../sessoes/?assunto_id=<?php echo $assunto['id']; ?>">
+                                        <a href="../sessoes/?assunto_id=<?php echo htmlentities($assunto['id']); ?>">
                                             <?php echo htmlspecialchars($assunto['nome']); ?>
                                         </a>
                                     </h3>
@@ -532,7 +532,7 @@ $estatisticas = $stmt->fetch();
                             
                             <div class="assunto-actions">
                                 <?php if (!$assunto['concluido']): ?>
-                                    <a href="concluir.php?id=<?php echo $assunto['id']; ?>" 
+                                    <a href="concluir.php?id=<?php echo htmlentities($assunto['id']); ?>" 
                                        class="btn-concluir" 
                                        title="Marcar como concluído"
                                        onclick="return confirm('Marcar este assunto como concluído?')">
@@ -540,18 +540,18 @@ $estatisticas = $stmt->fetch();
                                     </a>
                                 <?php endif; ?>
                                 
-                                <a href="edit.php?id=<?php echo $assunto['id']; ?>" title="Editar">
+                                <a href="edit.php?id=<?php echo htmlentities($assunto['id']); ?>" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 
                                 <?php if ($assunto['total_subassuntos'] == 0): ?>
-                                    <a href="create.php?disciplina_id=<?php echo $disciplina_id; ?>&assunto_pai_id=<?php echo $assunto['id']; ?>" 
+                                    <a href="create.php?disciplina_id=<?php echo htmlentities($disciplina_id); ?>&assunto_pai_id=<?php echo htmlentities($assunto['id']); ?>" 
                                        title="Adicionar subassunto">
                                         <i class="fas fa-plus-circle"></i>
                                     </a>
                                 <?php endif; ?>
                                 
-                                <a href="delete.php?id=<?php echo $assunto['id']; ?>" 
+                                <a href="delete.php?id=<?php echo htmlentities($assunto['id']); ?>" 
                                    class="btn-excluir" 
                                    title="Excluir"
                                    onclick="return confirm('Tem certeza que deseja excluir este assunto?')">

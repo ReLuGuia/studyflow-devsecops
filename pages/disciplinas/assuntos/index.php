@@ -37,7 +37,7 @@ $disciplina = $stmt->fetch();
 </head>
 <body>
     <h2>Assuntos: <?php echo $disciplina['nome']; ?></h2>
-    <a href="create.php?disciplina_id=<?php echo $disciplina_id; ?>">Novo Assunto</a>
+    <a href="create.php?disciplina_id=<?php echo htmlentities($disciplina_id); ?>">Novo Assunto</a>
     <a href="../disciplinas/">Voltar para Disciplinas</a>
     <!-- Listagem... -->
 </body>
